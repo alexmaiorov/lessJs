@@ -1,21 +1,17 @@
 function prim(num){
-    let a=2
-    while (a<=num) { 
         let c=2
-        while(c<a && c<=Math.sqrt(num)){
-            if (num%c===0 && num!=c){
-                c=a++
+        while(c<=Math.sqrt(num)){
+            if (num%c===0){
                 return false     
-        } else {
-            c++        
-        }
-    }
-    a++
-    }
+        } 
+        c++ 
+        }       
   return true  
 }
-z=2
+let z=2,
+    a=[]
 while (z<=100){
-    if (prim(z)) console.log(z)
+    if (prim(z)) a.push(z)
     z++
-}
+    }
+console.log(a) 
