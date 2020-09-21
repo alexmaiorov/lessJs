@@ -4,16 +4,26 @@ function getRandomInRange(mi, ma) {
     return Math.floor(Math.random() * (ma - mi + 1)) + mi;
   }
 
-console.log(game(getRandomInRange(min, max)))
+var rnd = getRandomInRange(min, max)
+console.log(rnd)
 
-function game (b){
-    a = prompt('Я загадал число от 1000 до 9999 отгадай его:')
-    if (a!==b) { 
+function game (compNum){
+    userNum = +prompt('Я загадал число от 1000 до 9999 отгадай его:')
+    console.log(userNum)
+    if (userNum!==compNum) { 
         let bull=0
         let cow = 0
-        let a1 = a.split('')
-        let b1 = b.split('')
-        a1.forEach(element => {if (a1(element)==b1(element)) {bull=+bull}
-            })
+        let userArr = String(userNum).split('')
+        let compArr = String(compNum).split('')
+        for (let i = 0; i < 4; i++){
+            if (userArr[i]==compArr[i]){
+                bull++
+            }else if (compArr.indexOf(userArr[i]) > -1){
+                cow++
+            }
         }
-    }
+        console.log(bull + '/' + cow) 
+        return game(compNum)
+    } else{console.log('Ты угадал')}     
+}
+game(rnd) 
