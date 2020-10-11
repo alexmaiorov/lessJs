@@ -1,0 +1,250 @@
+.main-header{
+  width: 1920px;
+  margin: 0 0;
+  font-family: 'Montserrat';
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  margin: 25px 0 0 0;
+}
+.warapper-logo{
+  margin: 0px 0 0px 20px;
+  display: flex;
+  justify-content: center;
+}
+.logo{
+  display: block;
+}
+.logo-name{
+  display: block;
+  margin: 9px 0 0px 0;
+  font-family: "Raleway";
+  font-size: 34px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+}
+nav{
+    margin: 0px 50px 0px 200px;
+}
+.menu-main {
+  display: flex;
+  align-items: center;
+  margin: 15px 0 0px 0;
+}
+.menu-main li {
+  display: inline-block;
+}
+  
+.menu-main a {
+  text-decoration: none;
+  position: relative;
+  margin: 0 20px 0 0px;
+  display: inline-block;
+  font-family: Montserrat;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 300;
+  color: #ffffff
+}
+.menu-main a:hover{
+  color:#c7b299;
+}
+.svg1{
+  fill:#ffffff;
+  margin: 0px 0 0 20px;
+}
+.svg2{
+  fill:#ffffff
+}
+.svg1:hover{
+  fill:#c7b299;
+}
+.svg2:hover{
+  fill:#c7b299;
+}
+.main{
+  width: 1920px;
+  margin: 0 0;
+  font-family: 'Montserrat';
+}
+.go-left{
+  margin-top: 100px;
+}
+.go-right{
+  margin-top: 100px;
+}
+.top{
+  padding: 350px 0 35px 0;
+  background-image: url(../img/bg_photo_11949.png);
+  background-size: cover;
+  background-position: center;
+}
+.get-start{
+  display: flex;
+  justify-content: center;
+}
+.wraper-text{
+  width: 33%;
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  margin: 0 500px;
+}
+.main-text-Uniq{
+  display: block;
+  font-family: "Raleway";
+  font-size: 36px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #ffffff;
+}
+.main-text-Port{
+  display: block;
+  font-family: "Raleway";
+  font-size: 52px;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #ffffff;
+}
+.main-text-Nam{
+  display: block;
+  font-family: "Montserrat";
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 300;
+  color: #ffffff;
+  margin: 16px 0 70px 0;
+  text-align:center;
+}
+.btn{
+  background-color: #998675;
+  border-radius: 3px;
+  padding: 20px 40px;
+  margin: 0px 0 0 0;
+}
+.btn-get{
+  font-family: "Raleway";
+  font-size: 14px;
+  line-height: 23px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.all-scrolls{
+  margin: 200px 46% 0 47.5%;
+  display: block;
+  
+}
+.scroll{
+  display: inline-block;
+  margin: 0 3px;
+  padding: 5px 5px;
+  border-radius: 50%;
+  background:rgba(199, 199, 199, 1);
+}
+.scroll:hover{
+  background:rgba(199, 199, 199, 0);
+  box-shadow: 0px 0px 0px 2px #d3c1ad;
+}
+.many-svg{
+  width: 1920px;
+  display: flex;
+  justify-content: center;
+  margin:100px 0 0 0;
+}
+.svg-word{
+  width: 18%;
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  box-shadow: 0px 84px 0px -80px rgba(241, 238, 233, 1);
+  padding-bottom: 30px;
+}
+.svg-heading{
+  margin:20px 0 10px 0;
+  font-family: "Raleway";
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #555555;
+}
+.svg-inscription{
+  font-family: "Montserrat";
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 300;
+  color: #8c8c8c;
+}
+.svg-img{
+  fill:#555555;
+}
+.svg-word:hover{
+  box-shadow: 0px 84px 0px -80px rgba(199, 178, 153, 1);
+  fill:#c7b299;
+}
+.svg-word:hover .svg-img{
+ fill:#c7b299;
+}
+.svg-word:hover .svg-heading{
+  color:#c7b299;
+}
+.real{
+  width: 1920px;
+  background-color: #fbfaf8;
+  display: flex;
+  align-items:center;
+  flex-direction:column;
+  margin:100px 0 0 0;
+}
+.real-word{
+  display: flex;
+  align-items:center;
+  flex-direction:column;
+  width: 40%;
+  text-align:center;
+  margin:100px 0 0 0;
+}
+.real-heading{
+  font-family: "Raleway";
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #555555;
+}
+.real-inscription{
+  font-family: "Montserrat";
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 300;
+  color: #8c8c8c;
+  margin:20px 0 40px 0;
+}
+.real-img{
+  display: flex;
+  align-items:center;
+}
+.left-img{
+  margin-top: 80px;
+  left: 550px;
+  position: relative;
+  z-index: 1;
+}
+.right-img{
+  margin-top: 80px;
+  right: 540px;
+  position: relative;
+  z-index: 2;
+}
+.center-img{
+  position: relative;
+  z-index: 3;
+}
+.right-img:hover{
+  z-index: 4;
+}
+.left-img:hover{
+  z-index: 4;
+}
