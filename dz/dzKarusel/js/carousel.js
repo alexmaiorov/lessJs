@@ -36,10 +36,10 @@ function GoRight(){
 }
 
 function SetMain(img){
-    let arr = [...document.querySelectorAll('.carousel-img')]
+    // let arr = [...document.querySelectorAll('.carousel-img')]
     let active = document.querySelector('.active')
-    num = arr.indexOf(img)
+    // num = arr.indexOf(img)
     active.classList.remove('active')
     document.querySelector('.main').src = img.src
-    arr[num].classList.add('active')
+    img.classList.add('active')
 }
