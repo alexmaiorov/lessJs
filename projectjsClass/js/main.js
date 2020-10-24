@@ -50,19 +50,84 @@ class Products {
     }
 }
 
-let catalog = new Products('products')
-
-
-
 class CartItem{
-
+    constructor(prod) {
+        // console.log(prod.name)
+        this.name = prod.name
+        this.price = +prod.price
+        this.id = +prod.id
+        this.quantity = +prod.quantity
+        
+    }
+    _renderCart() {
+        return `
+            <div class="cart-item">
+                <div class="product-bio">
+                    <img src="${cartImage}" alt="cart-img">
+                    <div class="product-desc">
+                        <p class="product-title">${this.name}</p>
+                        <p class="product-quantity">${this.quantity}</p>
+                        <p class="product-single-price">${this.price}</p>
+                    </div>
+                </div>
+                <div class="right-block">
+                    <p class="product-price">${this.quantity * this.price}</p>
+                    <button class="del-btn" data-id ="${this.id}">&times;</button>
+                </div>
+            </div>
+            `
+    } 
 }
-
 class Cart{
-    
+    constructor() {
+        this.products=[]
+        this._init()
+    }
+    _init() {
+        userCart.forEach(element => {
+            console.log(element)
+            this.products.push(new CartItem(element))
+        });
+        this.render()
+    }
+    render (){
+        let strHtml = ''
+        this.products.forEach(element => {
+            strHtml += element._renderCart()
+        })
+        document.querySelector('.cart-block').innerHTML = strHtml
+    }  
 }
 
-let userCart = []
+   
+
+function addProduct(prod) {
+    let find = userCart.find (el => {
+                return el.id === +prod.dataset['id']
+            })
+            if (find) {
+                find.quantity++
+            } else {
+                userCart.push({
+                    name: prod.dataset['name'],
+                    price: +prod.dataset['price'],
+                    id: +prod.dataset['id'],
+                    quantity: 1
+                })  
+            }
+        new Cart()
+    }
+function removeProduct(prod) {
+        let find = userCart.find (el => {
+            return el.id === +prod.dataset['id']
+        })
+        if (find.quantity > 1) {
+            find.quantity--
+        } else {
+            userCart.splice (userCart.indexOf(find), 1)
+        }
+        new Cart()
+    }
 
 function createDTO () {
     let arr = []
@@ -80,6 +145,16 @@ function showCart() {
     document.querySelector('.cart-block').classList.toggle('invisible')
 }
 
+document.querySelector('.products').addEventListener('click', function(e) {
+        if (e.target.classList.contains('buy-btn')) {
+            addProduct (e.target)
+        }
+    })
+document.querySelector('.cart-block').addEventListener('click', function(e) {
+        if (e.target.classList.contains('del-btn')) {
+            removeProduct (e.target)
+        }
+    })
 // function addProduct(prod) {
 //     let find = userCart.find (el => {
 //         return el.id === +prod.dataset['id']
@@ -97,17 +172,7 @@ function showCart() {
 //     renderCart()
 // }
 
-// function removeProduct(prod) {
-//     let find = userCart.find (el => {
-//         return el.id === +prod.dataset['id']
-//     })
-//     if (find.quantity > 1) {
-//         find.quantity--
-//     } else {
-//         userCart.splice (userCart.indexOf(find), 1)
-//     }
-//     renderCart()
-// }
+// 
 
 // function renderCart() {
 //     let htmlStr = ''
