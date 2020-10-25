@@ -2,76 +2,157 @@
 const image = 'https://placehold.it/200x150'
 const cartImage = 'https://placehold.it/100x80'
 
-const ITEMS = ['Notebook', 'Display', 'Keyboard', 'Mouse', 'Phones', 'Router', 'USB-camera', 'Gamepad']
-const PRICES = [1000, 200, 20, 10, 25, 30, 18, 24]
-const IDS = [1, 2, 3, 4, 5, 6, 7, 8]
-let list = createDTO () //зодание товаров функцией
+const FAKEAPI = 'https://raw.githubusercontent.com/alexmaiorov/for_json/master'
 
-class Product {
-    constructor(product) {
-        this.name = product.name
-        this.id = product.id
-        this.img = product.img
-        this.price = product.price
-    }
-    render() {
-        return `
-            <div class="product-item">
-                <img src="${this.img}" alt="img">
-                <div class="desc">
-                    <h3>${this.name}</h3>
-                    <p>${this.price}</p>
-                    <button class="buy-btn" data-id ="${this.id}" data-name="${this.name}" data-price="${this.price}">Купить</button>
-                </div>
-            </div>
-        `
-    }
-}
-
-class Products {
-    constructor(block) {
-        this.products = []
-        this.block = `.${block}`
+class List {
+    //суперкласс для каталога и корзины
+    constructor (url, block) {
+        this.block = block
+        this.url = url
+        // общие
+        this.items = [] //active objects
+        this.DTOarr = [] //uploaded objects
         this._init()
     }
     _init() {
-        list.forEach(element => {
-            this.products.push(new Product(element))
-        });
-        this.render()
+        return false
+    }
+    getJson(url) {
+        return fetch(url)
+                .then (d => d.json())
     }
     render() {
         let block = document.querySelector(this.block)
-        let strHtml = ''
-        this.products.forEach(element => {
-            strHtml += element.render()
-        });
-        block.innerHTML = strHtml
+        this.DTOarr.forEach(e => {
+            let item = new lists[this.constructor.name] (e)
+            this.items.push(item)
+            block.insertAdjacentHTML('beforeend', item.render())
+        })
     }
 }
 
-let catalog = new Products('products')
-
-
-
-class CartItem{
-
-}
-
-class Cart{
-    
-}
-
-let userCart = []
-
-function createDTO () {
-    let arr = []
-    
-    for (let i = 0; i < ITEMS.length; i++) {
-        arr.push (createProduct (ITEMS[i], PRICES[i], IDS[i]))
+class ListItem {
+    //суперкласс для продукта в каталоге и корзине
+    constructor (e, img) {
+        this.title = e.title
+        this.price = e.price
+        this.id = e.id
+        this.img = img
     }
-    return arr
+    render () {
+        return false
+    }
 }
+
+class ProductList extends List {
+    constructor (cart, url = '/catalogData.json', block = '.products') {
+        super(url, block)
+        this.cart = cart
+    }
+    _init() {
+        this.getJson(FAKEAPI + this.url)
+            .then(data => {this.DTOarr = data})
+            .finally(() => {
+                this.render()
+            })
+    }
+}
+
+class CartList extends List {
+    constructor (url = '/cartData.json' , block = '.cart-block') {
+        super(url, block)
+    }
+    _init() {
+        this.getJson(FAKEAPI + this.url)
+            .then (data => {this.DTOarr = data.contents})
+            .finally(() => {
+                this.render()
+            })
+    }
+}
+
+class ProductItem extends ListItem{
+
+}
+
+class CartItem extends ListItem{
+
+}
+
+
+const lists =  {
+    ProductList: ProductItem,
+    CartList: CartItem
+}
+
+let cart = new CartList()
+let products = new ProductList (cart)
+//=======================================================================
+// class Product {
+//     constructor(product) {
+//         this.name = product.name
+//         this.id = product.id
+//         this.img = product.img
+//         this.price = product.price
+//     }
+//     render() {
+//         return `
+//             <div class="product-item">
+//                 <img src="${this.img}" alt="img">
+//                 <div class="desc">
+//                     <h3>${this.name}</h3>
+//                     <p>${this.price}</p>
+//                     <button class="buy-btn" data-id ="${this.id}" data-name="${this.name}" data-price="${this.price}">Купить</button>
+//                 </div>
+//             </div>
+//         `
+//     }
+// }
+
+// class Products {
+//     constructor(block) {
+//         this.products = []
+//         this.block = `.${block}`
+//         this._init()
+//     }
+//     _init() {
+//         list.forEach(element => {
+//             this.products.push(new Product(element))
+//         });
+//         this.render()
+//     }
+//     render() {
+//         let block = document.querySelector(this.block)
+//         let strHtml = ''
+//         this.products.forEach(element => {
+//             strHtml += element.render()
+//         });
+//         block.innerHTML = strHtml
+//     }
+// }
+
+// let catalog = new Products('products')
+
+
+
+// class CartItem{
+
+// }
+
+// class Cart{
+    
+// }
+
+// let userCart = []
+
+// function createDTO () {
+//     let arr = []
+    
+//     for (let i = 0; i < ITEMS.length; i++) {
+//         arr.push (createProduct (ITEMS[i], PRICES[i], IDS[i]))
+//     }
+//     return arr
+// }
 
 let btnCart = document.querySelector('.btn-cart')
 btnCart.addEventListener('click', showCart)
@@ -132,26 +213,26 @@ function showCart() {
 //     document.querySelector('.cart-block').innerHTML = htmlStr
 // }
 
-function createProduct (name, price, id) {
-    return {
-        name: name,
-        id: id,
-        price: price,
-        img: image,
-        // createTemplate: function() {
-        //     return `
-        //         <div class="product-item">
-        //             <img src="${this.img}" alt="img">
-        //             <div class="desc">
-        //                 <h3>${this.name}</h3>
-        //                 <p>${this.price}</p>
-        //                 <button class="buy-btn" data-id ="${this.id}" data-name="${this.name}" data-price="${this.price}">Купить</button>
-        //             </div>
-        //         </div>
-        //     `
-        // }
-    }
-}
+// function createProduct (name, price, id) {
+//     return {
+//         name: name,
+//         id: id,
+//         price: price,
+//         img: image,
+//         // createTemplate: function() {
+//         //     return `
+//         //         <div class="product-item">
+//         //             <img src="${this.img}" alt="img">
+//         //             <div class="desc">
+//         //                 <h3>${this.name}</h3>
+//         //                 <p>${this.price}</p>
+//         //                 <button class="buy-btn" data-id ="${this.id}" data-name="${this.name}" data-price="${this.price}">Купить</button>
+//         //             </div>
+//         //         </div>
+//         //     `
+//         // }
+//     }
+// }
 
 // function renderCatalog() {
 //     let htmlStr = ''
@@ -164,17 +245,17 @@ function createProduct (name, price, id) {
 // // createDTO()
 // // renderCatalog()
 
-// document.querySelector('.products').addEventListener('click', function(e) {
-//     if (e.target.classList.contains('buy-btn')) {
-//         addProduct (e.target)
-//     }
-// })
+document.querySelector('.products').addEventListener('click', function(e) {
+    if (e.target.classList.contains('buy-btn')) {
+        addProduct (e.target)
+    }
+})
 
-// document.querySelector('.cart-block').addEventListener('click', function(e) {
-//     if (e.target.classList.contains('del-btn')) {
-//         removeProduct (e.target)
-//     }
-// })
+document.querySelector('.cart-block').addEventListener('click', function(e) {
+    if (e.target.classList.contains('del-btn')) {
+        removeProduct (e.target)
+    }
+})
 
 
 // //Псевдо ООП
@@ -214,4 +295,3 @@ function createProduct (name, price, id) {
 //         document.querySelector('.products').innerHTML = htmlStr
 //     }
 // }
-
