@@ -1,7 +1,6 @@
 .main-header{
   width: 1920px;
   margin: 0 0;
-  font-family: 'Montserrat';
   position: absolute;
   display: flex;
   justify-content: center;
@@ -12,7 +11,11 @@
   display: flex;
   justify-content: center;
 }
+.warapper-logo:hover .logo{
+  fill:#c7b299;
+}
 .logo{
+  fill:#ffffff;
   display: block;
 }
 .logo-name{
@@ -24,6 +27,9 @@
   font-weight: 400;
   letter-spacing: -0.04em;
   color: #ffffff;
+}
+.warapper-logo:hover .logo-name{
+  color:#c7b299;
 }
 nav{
     margin: 0px 50px 0px 200px;
@@ -56,7 +62,7 @@ nav{
   margin: 0px 0 0 20px;
 }
 .svg2{
-  fill:#ffffff
+  fill:#ffffff;
 }
 .svg1:hover{
   fill:#c7b299;
@@ -70,10 +76,18 @@ nav{
   font-family: 'Montserrat';
 }
 .go-left{
+  fill:#ffffff;
   margin-top: 100px;
 }
+.go-left:hover{
+  fill:#d3c1ad;
+}
 .go-right{
+  fill:#ffffff;
   margin-top: 100px;
+}
+.go-right:hover{
+  fill:#d3c1ad;
 }
 .top{
   padding: 350px 0 35px 0;
@@ -119,6 +133,7 @@ nav{
   text-align:center;
 }
 .btn{
+  text-decoration: none;
   background-color: #998675;
   border-radius: 3px;
   padding: 20px 40px;
@@ -154,8 +169,12 @@ nav{
   justify-content: center;
   margin:100px 0 0 0;
 }
-.svg-word{
+.svg-wrapper{
+  text-decoration: none;
   width: 18%;
+  display: flex;
+}
+.svg-word{
   display: flex;
   flex-direction:column;
   align-items:center;
@@ -247,4 +266,133 @@ nav{
 }
 .left-img:hover{
   z-index: 4;
+}
+.word-press{
+  display: flex;
+  align-items:center;
+  background-color: #f4f5f8;
+  background-image: linear-gradient(90.0deg, #211b19 0%, #4e3427 100%);
+}
+.wp-word{
+ margin: 50px 450px 50px 380px;
+}
+.wp-tect-wax{
+  font-family: "Raleway";
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #c7b299;
+}
+.wp-text-all{
+  font-family: "Raleway";
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #ffffff;
+}
+.wp-text-word{
+  margin:0;
+  font-family: "Montserrat";
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 300;
+  color: #615855;
+}
+.Latest-Proj{
+ 
+ 
+}
+.proj-word{
+  margin: 70px auto;
+  display: flex;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  width: 45%;
+}
+.proj-main{
+  font-family: "Raleway";
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #555555;
+}
+.proj-text{
+  font-family: "Montserrat";
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 300;
+  color: #8c8c8c;
+  margin: 20px 0 40px 0;
+}
+.btn-proj{
+  text-decoration: none;
+  background-color: #ffffff;
+  border-radius: 3px;
+  padding: 10px 20px;
+  margin: 0px 0 0 0;
+  font-family: "Montserrat";
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 300;
+  color: #8c8c8c;
+  border: 1px solid #ebebeb;
+  border-radius: 3px;
+}
+.btn-proj:hover{
+  background-color:#998675;
+  color: #ffffff;
+}
+.proj-sample{
+  display: flex;
+  text-align:center;
+  justify-content:center;
+  width: 70%;
+  margin: 0 0 0 300px;
+}
+.sample-wrapper{
+  display: block;
+}
+.sample-img-text{
+  text-decoration: none;
+  display: flex;
+  flex-direction:column;
+  margin: 10px 10px 20px 10px;
+}
+.sample-img{
+  display: block;
+  width: 100%;
+}
+.sample-text {
+  display: flex;
+  text-align:left;
+  flex-direction:column;
+  background-color: #fbfaf8;
+}
+.sample-text-main{
+  font-family: "Raleway";
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #c7b299;
+  margin: 20px 0 0 20px;
+}
+.sample-text-comment{
+  font-family: "Montserrat";
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 300;
+  color: #d1d1d1;
+  margin: 0px 0 20px 20px;
+}
+.invisible-img{
+  display: none;
+  position: absolute;
+  margin: 110px 0 0 150px;
+}
+.sample-svg{
+margin:0 20px 0 0;
+}
+.sample-img-text:hover .invisible-img{
+  display:flex;
 }
