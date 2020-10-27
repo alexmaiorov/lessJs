@@ -148,22 +148,22 @@ let store = {
         })
         document.querySelector('.products').innerHTML = htmlStr
     },
-    addProduct: function (prod) {
-        let find = this.cart.find (el => {
-            return el.id === +prod.dataset['id']
-        })
-        if (find) {
-            find.quantity++
-        } else {
-            this.cart.push ({
-                name: prod.dataset['name'],
-                price: +prod.dataset['price'],
-                id: +prod.dataset['id'],
-                quantity: 1
-            })
-        }
-        renderCart()
-    },
+    // addProduct: function (prod) {
+    //     let find = this.cart.find (el => {
+    //         return el.id === +prod.dataset['id']
+    //     })
+    //     if (find) {
+    //         find.quantity++
+    //     } else {
+    //         this.cart.push ({
+    //             name: prod.dataset['name'],
+    //             price: +prod.dataset['price'],
+    //             id: +prod.dataset['id'],
+    //             quantity: 1
+    //         })
+    //     }
+    //     renderCart()
+    // },
     showCart: function() {
         document.querySelector('.cart-block').classList.toggle('invisible')
     },

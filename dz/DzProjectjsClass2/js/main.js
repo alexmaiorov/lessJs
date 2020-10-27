@@ -86,7 +86,7 @@ class Cart{
     }
     _init() {
         userCart.forEach(element => {
-            // console.log(element)
+            console.log(element)
             this.products.push(new CartItem(element))
         });
         this.render()
@@ -138,7 +138,6 @@ function createDTO () {
     }
     return arr
 }
-
 let catalog = new Products ('products')
 let userCart=[]
 
