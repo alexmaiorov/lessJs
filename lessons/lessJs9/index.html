@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+<!-- 
+        <template v-if="flag">
+            <h2 :title="message"> Заголовок 1 </h2>
+            <p>Параграф 1</p>
+        </template>
+        <template v-else>
+            <h2 :title="message"> Заголовок 2 </h2>
+            <p>Параграф 2</p>
+        </template>
+
+        <h2 :class = "[isActive ? 'active' : 'disabled', 'default']"> Заголовок с v-show</h2>
+
+        <ul>
+            <li v-for="(item, index) in list">index {{index}} : {{ item }}</li>
+        </ul>
+
+        <ul>
+            <li v-for="user in users"> {{ user.name }}</li>
+        </ul>
+
+        <button @click = "Function2">button</button> -->
+
+
+        <input type="text" v-model="limit">
+        <button @click = "reload">Загрузить</button>
+
+        <div class="container">
+            <div class="post" v-for="item in requestedPost">
+                <h2>{{ item.title }}</h2>
+                <p>{{ item.body }}</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
