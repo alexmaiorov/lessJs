@@ -1,0 +1,55 @@
+/* .wrapper-number{
+  display: flex;
+  position: absolute;
+  left: 70px;
+ }
+.number{
+    width: 72px;
+    height: 72px;
+    background-image: url(../img/num.jpg);
+  }
+  .number:hover{
+    box-shadow: 0 6px 4px -4px #212121; 
+  }
+  .number:nth-child(1){
+    background-position: 0px -20px;
+  }
+  .number:nth-child(2){
+    background-position: -34px 0px;
+  }
+  .number:nth-child(3){
+    background-position: -68px 0px;
+  }
+  .number:nth-child(4){
+    background-position: 28px 0px;
+  }
+  .number:nth-child(5){
+    background-position: 0px 0px;
+  }
+  .number:nth-child(6){
+    background-position: -34px 0px;
+  }
+  .number:nth-child(7){
+    background-position: -68px 0px;
+  }
+  .number:nth-child(8){
+    background-position: 28px 0px;
+  }  */
+
+.desk{
+    width: 560px;
+    height: 560px;
+    margin: 70px 70px;
+    border: 1px solid black;
+}
+.block{
+    width: 70px;
+    height: 70px; 
+    float: left;
+}
+.black{
+    background-color: black;
+}
+.white{
+    background-color: #fff;
+}
