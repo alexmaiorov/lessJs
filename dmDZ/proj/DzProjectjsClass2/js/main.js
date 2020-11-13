@@ -82,15 +82,15 @@ class CartItem{
 class Cart{
     constructor() {
         this.products=[]
-        this._init()
+        // this._init()
     }
-    _init() {
-        this.products.forEach(element => {
-            console.log(element)
-            this.products.push(new CartItem(element))
-        });
-        this.render()
-    }
+    // _init() {
+    //     this.products.forEach(element => {
+    //         console.log(element)
+    //         this.products.push(new CartItem(element))
+    //     });
+    //     this.render()
+    // }
     render (){
         let strHtml = ''
         this.products.forEach(el => {
